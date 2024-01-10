@@ -9,7 +9,6 @@ export const getAnalysis = async (modelName: string) => {
 
   await delay(1000);
 
-  console.log(modelNames, modelName, modelNames.includes(modelName));
   if (!modelNames.includes(modelName)) {
     data = [null];
     loading = false;

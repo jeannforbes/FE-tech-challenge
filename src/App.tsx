@@ -1,12 +1,17 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import { CssVarsProvider } from "@mui/joy";
+import CustomBreadcrumbs from "./components/Breadcrumbs";
 
 function App() {
   return (
-    <div className="flex flex-col gap-2">
-      <Navbar />
-      <Outlet />
-    </div>
+    <CssVarsProvider>
+      <div className="flex flex-col gap-2">
+        <Navbar />
+        <CustomBreadcrumbs />
+        <Outlet />
+      </div>
+    </CssVarsProvider>
   );
 }
 
