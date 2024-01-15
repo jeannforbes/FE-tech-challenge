@@ -47,3 +47,13 @@ If you see an error like this,
 ```
 sh: 1: vite: Permission denied
 ```
+
+### Paired Programming Challenge
+
+Let's make the bar chart shown on the analysis page easier to see on other devices. 
+1. We would like to make the actual card be locked to the size of the screen so it's always fully visible.
+2. We want the internal chart of the card to have a minimum size.
+3. We want the inside of the card to scroll to allow us to see the full chart when the card is smaller than the chart.
+
+Instead, let's...
+1. Not implement scrolling, and see if we can always have the chart fully visible for "standard" mobile display sizes.

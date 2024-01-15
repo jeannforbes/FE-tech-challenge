@@ -5,6 +5,8 @@ import App from "./App.tsx";
 import "./index.css";
 import Home from "./views/Home/Home.tsx";
 import Inventory from "./views/Inventory/Inventory.tsx";
+import Analysis from "./views/Analysis/Analysis.tsx";
+import Compare from "./views/Compare/Compare.tsx";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,18 @@ const router = createBrowserRouter([
         path: "/inventory",
         element: <Inventory />,
       },
+      {
+        path: "/analysis",
+        element: <Inventory />,
+      },
+      {
+        path: "/analysis/:name",
+        element: <Analysis />,
+      },
+      {
+        path: "/compare",
+        element: <Compare />,
+      },
     ],
   },
 ]);
@@ -26,5 +40,5 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
