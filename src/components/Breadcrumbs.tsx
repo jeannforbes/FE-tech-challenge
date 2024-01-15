@@ -19,9 +19,9 @@ const CustomBreadcrumbs = () => {
     <>
       {isVisible() && (
         <Breadcrumbs aria-label="breadcrumbs">
-          {crumbs.slice(0, crumbs.length - 1).map((item: string) => (
-            <ReactLink to={`/${item}`}>
-              <Link>{item}</Link>
+          {crumbs.slice(0, crumbs.length - 1).map((item: string, i) => (
+            <ReactLink key={`react-link-${i}`} to={`/${item}`}>
+              {item}
             </ReactLink>
           ))}
           <Typography>{crumbs[crumbs.length - 1]}</Typography>

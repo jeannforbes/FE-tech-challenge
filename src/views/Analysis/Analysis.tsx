@@ -28,11 +28,13 @@ const Analysis = () => {
   return (
     <>
       <Container>
-        <div className="flex flex-col gap-4 pt-4">
+        <div className="flex flex-col gap-4 pt-4 hidden sm:flex">
           <Typography level="h1">{name}</Typography>
         </div>
-        <Card sx={{ height: "400px" }}>
-          {loading && <CircularProgress />}
+        <Card className="h-96 sm:h-screen">
+          <div className="flex justify-center ">
+            {loading && <CircularProgress />}
+          </div>
           <Chart data={data} />
         </Card>
       </Container>

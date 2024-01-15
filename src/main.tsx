@@ -6,6 +6,7 @@ import "./index.css";
 import Home from "./views/Home/Home.tsx";
 import Inventory from "./views/Inventory/Inventory.tsx";
 import Analysis from "./views/Analysis/Analysis.tsx";
+import Compare from "./views/Compare/Compare.tsx";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/analysis/:name",
         element: <Analysis />,
+      },
+      {
+        path: "/compare",
+        element: <Compare />,
       },
     ],
   },

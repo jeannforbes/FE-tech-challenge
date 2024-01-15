@@ -1,7 +1,7 @@
 import { ResponsiveBar } from "@nivo/bar";
 import { useEffect, useState } from "react";
 
-const transformData = ({ data: models }) => {
+const transformData = (models) => {
   if (!models || models.length < 2) return;
 
   return {
@@ -11,7 +11,8 @@ const transformData = ({ data: models }) => {
         ...model,
         // ...model.value,
         ...Object.keys(model.value).reduce((acc, key) => {
-          acc[key] = model.value[key].toPrecision(3);
+          const value = model.value[key];
+          acc[key] = (value * 100).toPrecision(3);
           return acc;
         }, {}),
       };
@@ -19,15 +20,15 @@ const transformData = ({ data: models }) => {
   };
 };
 
-const AnalysisChart = (rawData) => {
+const AnalysisChart = ({ data }) => {
   const [chart, setChart] = useState({
     data: [],
     keys: [],
   });
 
   useEffect(() => {
-    setChart(transformData(rawData));
-  }, [rawData]);
+    setChart(transformData(data));
+  }, [data]);
 
   return (
     <>
@@ -38,11 +39,18 @@ const AnalysisChart = (rawData) => {
           groupMode="grouped"
           layout="horizontal"
           indexBy="origin"
-          margin={{ right: 130, bottom: 50, left: 60 }}
+          margin={{ right: 10, bottom: 50, left: 60 }}
           padding={0.3}
           valueScale={{ type: "linear" }}
           indexScale={{ type: "band", round: true }}
           colors={{ scheme: "nivo" }}
+          label={(d) =>
+            d.value === 0 ? (
+              <tspan x="15">{`${d.value}%`}</tspan>
+            ) : (
+              `${d.value}%`
+            )
+          }
           legends={[
             {
               dataFrom: "keys",

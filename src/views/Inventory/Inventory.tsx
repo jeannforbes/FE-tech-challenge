@@ -14,7 +14,9 @@ const ModelCards = () => {
 
   return (
     <>
-      {models.length < 1 && <CircularProgress />}
+      <div className="flex justify-center">
+        {models.length < 1 && <CircularProgress />}
+      </div>
       <div>
         <div>
           {models.map((model, i) => {
@@ -27,7 +29,11 @@ const ModelCards = () => {
 };
 
 const Inventory = () => {
-  return <div>{ModelCards()}</div>;
+  return (
+    <>
+      <ModelCards />
+    </>
+  );
 };
 
 export default Inventory;
